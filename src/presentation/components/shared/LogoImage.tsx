@@ -4,7 +4,8 @@ import logoIcon from "../../../assets/logo.png"
 
 /**
  * Atomic component that renders the application's brand identity logo.
- * * * It encapsulates the official logo asset, ensuring consistent dimensions and 
+ * 
+ * It encapsulates the official logo asset, ensuring consistent dimensions and 
  * accessibility across the navigation header.
  */
 export default function LogoImage() {

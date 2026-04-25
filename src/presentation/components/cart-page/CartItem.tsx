@@ -5,10 +5,13 @@ import type { CartItemProps } from "../../../domain/models/interfaces"
 
 /**
  * Individual item component for the shopping cart list.
- * * Displays product image, technical specifications (storage, color), 
+ * 
+ * - Displays product image, technical specifications (storage, color), 
  * quantity, and price.
- * * Provides a removal action via the `handleRemoveFromCart` callback.
- * * Optimized for accessibility with descriptive ARIA labels for the delete action.
+ * 
+ * - Provides a removal action via the `handleRemoveFromCart` callback.
+ * 
+ * - Optimized for accessibility with descriptive ARIA labels for the delete action.
  * 
  * @param {CartItemProps} props - Component properties including the item data, removal handler and index.
  */
@@ -23,7 +26,7 @@ export default function CartItem({ item, handleRemoveFromCart, index }: CartItem
         <div className="cart-item-info">
           <span className="cart-item-name">{item.name}</span>
           <span className="cart-item-option">
-            {item.storage} | {item.color}{item.quantity > 1 ? ` | x${item.quantity}` : ''}
+            {item.storage} | {item.color}{item.quantity > 1 ? ` | x${item.quantity}` : ""}
           </span>
           <span className="cart-item-price">{item.price} {CartPageLabels.EUR}</span>
         </div>

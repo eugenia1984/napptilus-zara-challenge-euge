@@ -3,7 +3,7 @@
   --bg-color: #ffffff;
   --text-primary: #000000;
   --text-secondary: #666666;
-  --text-light: #000000;
+  --text-warning: #c0392b;
   --border-color-primary: #000000;
   --border-color-secondary: #cccccc;
 
@@ -27,9 +27,7 @@
   --border-thin-secondary: 1px solid var(--border-color-secondary);
 }
 
-/* -----------------------
-          Reset 
------------------------ */
+/************ Reset *****************/
 * {
   margin: 0;
   padding: 0;
@@ -57,9 +55,7 @@ ol {
   list-style: none;
 }
 
-/* --------------------
-         Layout 
---------------------- */
+/************** Layout *************/
 .container {
   width: 100%;
   max-width: 1440px;
@@ -67,9 +63,7 @@ ol {
   padding: 0 var(--spacing-sm);
 }
 
-/* --------------------
-         Header 
----------------------- */
+/************ Header **************/
 .header {
   display: flex;
   justify-content: space-between;
@@ -90,9 +84,7 @@ ol {
   text-transform: uppercase;
 }
 
-/*************************
-        Cart Page
-*************************/
+/*********** Cart Page *************/
 
 .cart-page {
   display: flex;
@@ -177,13 +169,13 @@ ol {
   border: none;
   font-family: var(--font-family);
   font-size: 0.75rem;
-  color: #c0392b;
+  color: var(--text-warning);
   cursor: pointer;
   padding: 0;
-}
 
-.cart-item-remove:hover {
-  text-decoration: underline;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .cart-summary {
@@ -223,26 +215,8 @@ ol {
   align-items: stretch;
 }
 
-.cart-continue-btn {
-  flex: 1;
-  display: block;
-  text-align: center;
-  padding: 14px 8px;
-  font-family: var(--font-family);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  border: var(--border-thin-secondary);
-  color: var(--text-primary);
-  background: transparent;
-  cursor: pointer;
-  white-space: nowrap;
-
-  :hover {
-    background-color: #f9f9f9;
-  }
-}
-
-.cart-pay-btn {
+/*********** Buttons *************/
+.primary-btn {
   flex: 1;
   width: 100%;
   display: block;
@@ -256,12 +230,43 @@ ol {
   cursor: pointer;
   white-space: nowrap;
 
-  :hover {
+  &:hover {
     opacity: 0.85;
+  }
+
+  @media (min-width: 768px) {
+    flex: 0;
+    min-width: 250px;
+    padding: 18px 40px;
   }
 }
 
-/* Desktop view */
+.link-btn {
+  flex: 1;
+  display: block;
+  text-align: center;
+  padding: 14px 8px;
+  font-family: var(--font-family);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  border: var(--border-thin-secondary);
+  color: var(--text-primary);
+  background: transparent;
+  cursor: pointer;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: #f9f9f9;
+  }
+
+  @media (min-width: 768px) {
+    flex: 0;
+    padding: 18px 40px;
+    min-width: 250px;
+  }
+}
+
+/********* Desktop view **********/
 @media (min-width: 768px) {
   .cart-page {
     width: 100%;
@@ -350,17 +355,5 @@ ol {
     padding-bottom: 0;
     margin-bottom: 0;
     white-space: nowrap;
-  }
-
-  .cart-continue-btn {
-    flex: 0;
-    padding: 18px 40px;
-    min-width: 250px;
-  }
-
-  .cart-pay-btn {
-    flex: 0;
-    min-width: 250px;
-    padding: 18px 40px;
   }
 }
