@@ -28,13 +28,14 @@ src
  ├── application       # Business logic and coordination
  │     └── use-cases   # Application logic for products and details
  ├── assets            # Static files (images, global fonts)
- ├── domain            # constants for literals and models
+ ├── domain            # constants for literals and models (interfaces and types)
  ├── infrastructure    # External tools and state persistence
  │     └── context     # Cart state management and localStorage sync
  ├── presentation      # UI Layer
  │     ├── components  # Reusable UI atoms and molecules
  │     ├── hooks       # Custom React hooks (logic reuse)
  │     └── pages       # Main views (Home, Product, Cart)
+ ├── test              # Set up test
  └── utils             # Formatting and helper functions
 ```
 
@@ -50,6 +51,17 @@ src
 
 * **Responsive UI**: Optimized experience for mobile and desktop following Figma specifications.
 
+## 🧪 Testing Strategy
+
+Automated testing is implemented using **Vitest** and **React Testing Library** to ensure component reliability and requirement compliance.
+
+* **Unit & Integration Tests**: Focused on key UI components and the main application views (List, Detail, and Cart).
+
+* **Post-Test Cleanup**: The suite includes an explicit `cleanup` cycle after each test case (configured in `src/test/setup.ts`). This ensures **test idempotency** by clearing the virtual DOM, preventing state leakage between tests.
+
+* **DOM Validation**: Extensive use of `@testing-library/jest-dom` matchers to verify accessibility standards (ARIA labels, roles) and UI states.
+
+* **Component Co-location**: Tests are located within `__tests__` folders alongside their respective components to improve discoverability and maintainability.
 
 ## App flow
 
@@ -94,9 +106,13 @@ src
     ```bash
     npm run build
     ```
-* **Testing**: Run the automated test suite.
+* **Testing (Terminal)**: Run the automated test suite in watch mode.
     ```bash
     npm run test
+    ```
+* **Testing (Visual UI)**: Open the interactive Vitest UI in your browser to see detailed results and reports.
+    ```bash
+    npm run test:ui
     ```
 
 ## 🔑 Environment Variables
@@ -111,11 +127,22 @@ VITE_API_KEY=87909682e6cd74208f41a6ef39fe4191
 
 ## ♿ Accessibility & Quality
 
-* **Semantic HTML**: Proper use of landmarks and buttons for screen reader compatibility.
+* **Semantic HTML**: Proper use of landmarks (`<main>`, `<section>`, `<header>`) and buttons for screen reader compatibility.
 
-* **Code Quality**: Strict Linting and Formatting (ESLint + Prettier) to ensure a clean codebase.
+* **Styling**: Built using CSS Variables, strictly following the font-family: `Helvetica, Arial, sans-serif` requirement.
 
-* **Console Cleanliness**: Zero errors or warnings in the browser console.
+* **Code Quality**: Integrated ESLint and Prettier for consistent code style and linting.
+
+* **Console Cleanliness**: Developed to ensure the browser console remains free of errors and warnings during execution.
+
+
+## 📖 Detailed Documentation
+
+For a deeper dive into the technical decisions and architectural patterns used in this project, please refer to:
+
+* [Architecture & Layers](./docs/architecture.md)
+* [Testing Strategy](./docs/testing.md)
+* [State Management & Persistence](./docs/state-management.md)
 
 ---
 

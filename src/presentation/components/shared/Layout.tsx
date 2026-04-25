@@ -2,9 +2,22 @@
 
 import { Outlet, Link, useLocation } from "react-router-dom"
 import { AppPaths } from "../../../domain/constants/paths"
-import logoIcon from "../../../assets/logo.png"
-import bagIcon from "../../../assets/bag-icon.png"
+import LogoImage from "./LogoImage"
+import BagImage from "./BagImage"
 
+/**
+ * Main Layout component that serves as the application's master template.
+ *  * This component provides a persistent header and a responsive container for the 
+ * application's views. It manages the global navigation shell, including the 
+ * brand logo and the conditional shopping cart indicator.
+ * * Key responsibilities:
+ * 
+ * -Provides a consistent header across all application pages.
+ * 
+ * -Manages conditional rendering of the cart icon based on the current route.
+ * 
+ * -Implements accessibility through semantic HTML and ARIA labels.
+ */
 export default function Layout() {
   const location = useLocation();
   const isCartPage = location.pathname === AppPaths.CART;
@@ -15,12 +28,12 @@ export default function Layout() {
     <div className="container">
       <header className="header">
         <Link to={AppPaths.HOME} className="header-logo" aria-label="MBST home page">
-          <img src={logoIcon} alt="MBST logo icon" />
+          <LogoImage />
         </Link>
         {!isCartPage && (
           <div className="header-cart">
             <Link to={AppPaths.CART} aria-label={`Cart page with ${cardTotalItems} items`}>
-             <img src={bagIcon} alt="bag icon" /> {cardTotalItems}
+             <BagImage /> {cardTotalItems}
             </Link>
           </div>
         )}
