@@ -12,13 +12,13 @@ export default function CartPage() {
   // TODO: mock till integration
   const cartItems = [
     {
-      productId: 'SMG-A05S',
-      color: '#000000',
-      storage: '64 GB',
-      imageUrl: 'http://prueba-tecnica-api-tienda-moviles.onrender.com/images/SMG-A05S-black.webp',
-      name: 'Black',
+      productId: "SMG-A05S",
+      color: "#000000",
+      storage: "64 GB",
+      imageUrl: "http://prueba-tecnica-api-tienda-moviles.onrender.com/images/SMG-A05S-black.webp",
+      name: "Black",
       quantity: 2,
-      price: '119'
+      price: "119"
     }
   ];
   const handleRemoveFromCart = () => { };
@@ -33,11 +33,11 @@ export default function CartPage() {
         ))}
       </section>
       <section className="cart-summary">
-        <CartTotal cartTotalPrice={cartTotalPrice}/>
+        <CartTotal cartTotalPrice={cartTotalPrice} />
         <div className="cart-actions-row">
           <Link to={AppPaths.HOME} className="cart-continue-btn">{CartPageLabels.CONTINUE_SHOPPING}</Link>
           <div className="cart-total-pay">
-            <CartTotal cartTotalPrice={cartTotalPrice}/>
+            <CartTotal cartTotalPrice={cartTotalPrice} />
             <CartPayButton />
           </div>
         </div>
