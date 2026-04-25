@@ -28,7 +28,7 @@ export default function CartItem({ item, handleRemoveFromCart, index }: CartItem
           <span className="cart-item-option">
             {item.storage} | {item.color}{item.quantity > 1 ? ` | x${item.quantity}` : ""}
           </span>
-          <span className="cart-item-price">{item.price} {CartPageLabels.EUR}</span>
+          <span className="cart-item-price">{item.price} {CartPageLabels?.EUR}</span>
         </div>
 
         <button
@@ -36,7 +36,7 @@ export default function CartItem({ item, handleRemoveFromCart, index }: CartItem
           onClick={() => handleRemoveFromCart()}
           aria-label={`Remove ${item.name} in ${item.color} ${item.storage} from cart`}
         >
-          {CartPageLabels.DELETE}
+          {CartPageLabels?.DELETE}
         </button>
       </div>
     </div>

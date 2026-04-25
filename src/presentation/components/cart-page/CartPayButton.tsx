@@ -19,6 +19,6 @@ import PrimaryButton from "../shared/PrimaryButton"
  */
 export default function CartPayButton() {
   return (
-    <PrimaryButton text={CartPageLabels.PAY}/>
+    <PrimaryButton text={CartPageLabels?.PAY}/>
   )
 }

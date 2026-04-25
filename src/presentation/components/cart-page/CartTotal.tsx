@@ -17,8 +17,8 @@ import type { CartTotalModel } from "../../../domain/models/interfaces"
 export default function CartTotal({cartTotalPrice}: CartTotalModel) {
   return (
     <div className="cart-total">
-      <span>{CartPageLabels.TOTAL}</span>
-      <span>{cartTotalPrice} {CartPageLabels.EUR}</span>
+      <span>{CartPageLabels?.TOTAL}</span>
+      <span>{cartTotalPrice} {CartPageLabels?.EUR}</span>
     </div>
   )
 }

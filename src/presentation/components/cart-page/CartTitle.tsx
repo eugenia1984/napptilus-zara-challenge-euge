@@ -1,7 +1,7 @@
 // src/presentation/components/cart-page/CartTitle.tsx
 
 import { CartPageLabels } from "../../../domain/constants/cart.page.labels"
-import type { CartTitleProps } from "../../../domain/models/interfaces"
+import type { CartTitleModel } from "../../../domain/models/interfaces"
 
 /**
  * Component that displays the main heading for the shopping cart page.
@@ -9,16 +9,16 @@ import type { CartTitleProps } from "../../../domain/models/interfaces"
  * It combines a localized title with a dynamic counter showing the number 
  * of items selected.
  * 
- * @param {CartTitleProps} props - Component properties.
+ * @param {CartTitleModel} props - Component properties.
  * @example
  * ```tsx
  * <CartTitle cartCount={3} />
  * ```
  */
-export default function CartTitle({ cartCount }: CartTitleProps) {
+export default function CartTitle({ cartCount }: CartTitleModel) {
   return (
     <h2 className="cart-title">
-      {CartPageLabels.TITLE} <span>({cartCount})</span>
+      {CartPageLabels?.TITLE} <span>({cartCount})</span>
     </h2>
   )
 }

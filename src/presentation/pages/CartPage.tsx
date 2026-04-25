@@ -35,7 +35,7 @@ export default function CartPage() {
       <section className="cart-summary">
         <CartTotal cartTotalPrice={cartTotalPrice} />
         <div className="cart-actions-row">
-          <LinkButton text={CartPageLabels.CONTINUE_SHOPPING} to={AppPaths.HOME} />
+          <LinkButton text={CartPageLabels?.CONTINUE_SHOPPING} to={AppPaths.HOME} />
           <div className="cart-total-pay">
             <CartTotal cartTotalPrice={cartTotalPrice} />
             <CartPayButton />

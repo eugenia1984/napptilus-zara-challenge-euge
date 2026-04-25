@@ -84,6 +84,79 @@ ol {
   text-transform: uppercase;
 }
 
+/*********** Home Page ************/
+.search-section {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--spacing-md);
+  padding: 0;
+}
+
+.search-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.search-input {
+  width: 100%;
+  border: none;
+  border-bottom: var(--border-thin);
+  padding: 8px 30px 8px 0;
+  margin-bottom: var(--spacing-sm);
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  background: transparent;
+  outline: none;
+
+  &::placeholder {
+    color: var(--text-secondary);
+  }
+}
+
+.search-clear {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+  margin-top: -6px;
+
+  &:hover {
+    color: var(--text-primary);
+  }
+}
+
+.search-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.results-count {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+}
+
+.filter-label {
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  text-transform: uppercase;
+
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
 /*********** Cart Page *************/
 
 .cart-page {

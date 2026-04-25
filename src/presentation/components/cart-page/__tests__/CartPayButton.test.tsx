@@ -10,7 +10,7 @@ describe("CartPayButton Component", () => {
     render(<CartPayButton />)
 
     const button = screen.getByRole("button", {
-      name: new RegExp(CartPageLabels.PAY, "i"),
+      name: new RegExp(CartPageLabels?.PAY, "i"),
     })
 
     expect(button).toBeInTheDocument()
