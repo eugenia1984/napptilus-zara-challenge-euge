@@ -5,7 +5,8 @@ import type { CartTitleProps } from "../../../domain/models/interfaces"
 
 /**
  * Component that displays the main heading for the shopping cart page.
- * * It combines a localized title with a dynamic counter showing the number 
+ * 
+ * It combines a localized title with a dynamic counter showing the number 
  * of items selected.
  * 
  * @param {CartTitleProps} props - Component properties.

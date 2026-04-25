@@ -37,3 +37,20 @@ export interface CartItemProps {
 export interface CartTotalModel {
   cartTotalPrice: number;
 }
+
+/**
+ * Interface for the PrimaryButton component props.
+ */
+export interface PrimaryButtonModel {
+  text: string;
+  ariaLabel?: string;
+}
+
+/**
+ * Interface for the LinkButton component props.
+ */
+export interface LinkButtonModel {
+  text: string;
+  to: string;
+  ariaLabel?: string;
+}

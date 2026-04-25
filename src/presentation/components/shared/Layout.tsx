@@ -7,9 +7,11 @@ import BagImage from "./BagImage"
 
 /**
  * Main Layout component that serves as the application's master template.
- *  * This component provides a persistent header and a responsive container for the 
+ *  
+ * This component provides a persistent header and a responsive container for the 
  * application's views. It manages the global navigation shell, including the 
  * brand logo and the conditional shopping cart indicator.
+ * 
  * * Key responsibilities:
  * 
  * -Provides a consistent header across all application pages.

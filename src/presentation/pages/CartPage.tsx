@@ -1,12 +1,12 @@
 // src/presentation/pages/CartPage.tsx
 
-import { Link } from "react-router-dom"
 import { CartPageLabels } from "../../domain/constants/cart.page.labels"
 import { AppPaths } from "../../domain/constants/paths"
 import CartItem from "../components/cart-page/CartItem"
 import CartTitle from "../components/cart-page/CartTitle"
 import CartTotal from "../components/cart-page/CartTotal"
 import CartPayButton from "../components/cart-page/CartPayButton"
+import LinkButton from "../components/shared/LinkButton"
 
 export default function CartPage() {
   // TODO: mock till integration
@@ -35,7 +35,7 @@ export default function CartPage() {
       <section className="cart-summary">
         <CartTotal cartTotalPrice={cartTotalPrice} />
         <div className="cart-actions-row">
-          <Link to={AppPaths.HOME} className="cart-continue-btn">{CartPageLabels.CONTINUE_SHOPPING}</Link>
+          <LinkButton text={CartPageLabels.CONTINUE_SHOPPING} to={AppPaths.HOME} />
           <div className="cart-total-pay">
             <CartTotal cartTotalPrice={cartTotalPrice} />
             <CartPayButton />

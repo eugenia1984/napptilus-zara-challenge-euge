@@ -4,7 +4,8 @@ import bagIcon from "../../../assets/bag-icon.png"
 
 /**
  * Atomic component that renders the shopping bag icon.
- * * * It encapsulates the bag asset and ensures consistent sizing and accessibility 
+ * 
+ * It encapsulates the bag asset and ensures consistent sizing and accessibility 
  * across the header and other navigation elements.
  */
 export default function BagImage() {
