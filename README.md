@@ -1,75 +1,122 @@
-# React + TypeScript + Vite
+# Zara Smartphone Catalog Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A high-performance, responsive web application for browsing and managing a smartphone catalog code by [María Eugenia Costa](https://github.com/eugenia1984).
 
-Currently, two official plugins are available:
+This project is built with a focus on clean architecture, accessibility, and high-fidelity UI.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Technical Stack
 
-## React Compiler
+* **Frontend**: React (v19.2.5), react-touter (v7.14.2) and React-Router-DOM (v7.14.2)
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+* **Build Tool**: Vite (v8.0.1)
 
-Note: This will impact Vite dev & build performances.
+* **State Management**: React Context API (for shopping cart persistence)
 
-## Expanding the ESLint configuration
+* **Environment**: Node.js (v22.12.0) 
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* **Styling**: CSS Variables (Responsive Design)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+* **Testing**: Vitest + React Testing Library 
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🛠 Project Structure & Infrastructure
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+The project follows a modular architecture inspired by Clean Architecture principles to ensure scalability and separation of concerns:
+
+```
+src
+ ├── mocks             # Mock data for testing and development
+ ├── application       # Business logic and coordination
+ │     └── use-cases   # Application logic for products and details
+ ├── assets            # Static files (images, global fonts)
+ ├── domain            # constants for literals and models
+ ├── infrastructure    # External tools and state persistence
+ │     └── context     # Cart state management and localStorage sync
+ ├── presentation      # UI Layer
+ │     ├── components  # Reusable UI atoms and molecules
+ │     ├── hooks       # Custom React hooks (logic reuse)
+ │     └── pages       # Main views (Home, Product, Cart)
+ └── utils             # Formatting and helper functions
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📋 Features
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+* **Product Listing**: Grid view of the top 20 devices with real-time API filtering by name or brand.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+* **Smart Search**: Real-time results indicator and optimized API queries.
+
+* **Dynamic Product Detail**: Technical specs with dynamic image switching based on color selection and storage price updates.
+
+* **Persistent Shopping Cart**: State is maintained via `localStorage`, allowing users to keep their items after page refreshes.
+
+* **Responsive UI**: Optimized experience for mobile and desktop following Figma specifications.
+
+
+## App flow
+
+- Home page: `/`
+
+- Product detail page: `/product/id={id}`
+
+- Cart page: `/cart`
+
+## 🚦 Getting Started
+
+### Prerequisites
+
+* Node.js `v22.13.0`
+
+* NPM (comes with Node)
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/zara-challenge.git
+   ```
+
+2. Navigate to the project folder:
+   ```bash
+   cd zara-challenge
+   ```
+
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+### Execution
+
+* **Development Mode**: Assets are served without minification for easier debugging.
+    ```bash
+    npm run dev
+    ```
+* **Production Mode**: Compiles, concatenates, and minimizes assets for optimal performance.
+    ```bash
+    npm run build
+    ```
+* **Testing**: Run the automated test suite.
+    ```bash
+    npm run test
+    ```
+
+## 🔑 Environment Variables
+
+To interact with the REST API, create a `.env` file in the root directory:
+
+```env
+VITE_API_URL=https://prueba-tecnica-api-tienda-moviles.onrender.com
+VITE_API_KEY=87909682e6cd74208f41a6ef39fe4191
 ```
+*Note: All requests include the `x-api-key` header for authentication.*
+
+## ♿ Accessibility & Quality
+
+* **Semantic HTML**: Proper use of landmarks and buttons for screen reader compatibility.
+
+* **Code Quality**: Strict Linting and Formatting (ESLint + Prettier) to ensure a clean codebase.
+
+* **Console Cleanliness**: Zero errors or warnings in the browser console.
+
+---
+
+*Developed as part of the Napptilus Tech Labs / Zara Technical Challenge.*

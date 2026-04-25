@@ -1,0 +1,85 @@
+{
+  "id": "SMG-A05S",
+  "brand": "Samsung",
+  "name": "Galaxy A05s",
+  "description": "El Samsung Galaxy A05s es un smartphone con una pantalla de 6.7 pulgadas, procesador Qualcomm Snapdragon 680, cámara triple de 50 MP y una potente batería de 5000 mAh. Ideal para usuarios que buscan un dispositivo con buena relación calidad-precio.",
+  "basePrice": 119,
+  "rating": 4.5,
+  "specs": {
+    "screen": "6.7\" Infinity U Super AMOLED",
+    "resolution": "2400 x 1080 pixels",
+    "processor": "Qualcomm Snapdragon 680",
+    "mainCamera": "50 MP (F1.8) Principal + 2 MP (F2.4) Profundidad + 2 MP F2.4) Macro",
+    "selfieCamera": "13 MP",
+    "battery": "5000 mAh",
+    "os": "Android 14",
+    "screenRefreshRate": "60-90 Hz"
+  },
+  "colorOptions": [
+    {
+      "name": "Black",
+      "hexCode": "#000000",
+      "imageUrl": "http://prueba-tecnica-api-tienda-moviles.onrender.com/images/SMG-A05S-black.webp"
+    },
+    {
+      "name": "Light Green",
+      "hexCode": "#90EE90",
+      "imageUrl": "http://prueba-tecnica-api-tienda-moviles.onrender.com/images/SMG-A05S-light-green.webp"
+    },
+    {
+      "name": "Silver",
+      "hexCode": "#C0C0C0",
+      "imageUrl": "http://prueba-tecnica-api-tienda-moviles.onrender.com/images/SMG-A05S-silver.webp"
+    }
+  ],
+  "storageOptions": [
+    {
+      "capacity": "64 GB",
+      "price": 119
+    }
+  ],
+  "similarProducts": [
+    {
+      "id": "SMG-A35",
+      "brand": "Samsung",
+      "name": "Galaxy A35 5G",
+      "basePrice": 333,
+      "imageUrl": "http://prueba-tecnica-api-tienda-moviles.onrender.com/images/SMG-A35-light-blue.webp"
+    },
+    {
+      "id": "XMI-13TPro",
+      "brand": "XIAOMI",
+      "name": "13T Pro",
+      "basePrice": 553.31,
+      "imageUrl": "http://prueba-tecnica-api-tienda-moviles.onrender.com/images/XMI-13TPro-negro.webp"
+    },
+    {
+      "id": "XMI-RN13P5G",
+      "brand": "Xiaomi",
+      "name": "Redmi Note 13 Pro 5G",
+      "basePrice": 399,
+      "imageUrl": "http://prueba-tecnica-api-tienda-moviles.onrender.com/images/XMI-RN13P5G-midnight-black.webp"
+    },
+    {
+      "id": "APL-IP13-128",
+      "brand": "Apple",
+      "name": "iPhone 13",
+      "basePrice": 619,
+      "imageUrl": "http://prueba-tecnica-api-tienda-moviles.onrender.com/images/APL-IP13-128-medianoche.webp"
+    },
+    {
+      "id": "SMG-A15",
+      "brand": "Samsung",
+      "name": "Galaxy A15 LTE",
+      "basePrice": 159,
+      "imageUrl": "http://prueba-tecnica-api-tienda-moviles.onrender.com/images/SMG-A15-azul.webp"
+    },
+    {
+      "id": "OPP-A18",
+      "brand": "OPPO",
+      "name": "A18",
+      "basePrice": 99,
+      "imageUrl": "http://prueba-tecnica-api-tienda-moviles.onrender.com/images/OPP-A18-azul-brillante.webp"
+    }
+  ]
+}
