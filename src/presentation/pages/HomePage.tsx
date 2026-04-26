@@ -5,26 +5,28 @@ import { HomePageLabels } from "../../domain/constants/home.page.labels"
 import { ErrorBoundary } from "react-error-boundary"
 import ProductList from "../components/home-page/ProductList"
 import { useHomePageLogic } from "./useHomePage"
+import SearchForm from "../components/home-page/SearchForm"
 
 /**
- * Main landing page component that serves as the product catalog.
- * * This page implements a "Search-as-you-type" pattern with debouncing, 
- * leveraging React 19's asynchronous rendering capabilities.
+ * HomePage component that acts as the main orchestrator for the product catalog.
  * 
- * Key features:
+ * It manages the coordination between the search interface and the asynchronous 
+ * product display, utilizing a decoupled logic architecture.
  * 
- * -Logic decoupling via `useHomePageLogic` custom hook.
+ * Key technical implementations:
  * 
- * -Non-blocking UI using `Suspense` for product fetching.
+ * -**State Management**: Delegated to `useHomePageLogic` for cleaner presentation.
  * 
- * -Robust error handling through `ErrorBoundary`.
+ * -**Async Pattern**: Uses React 19 `Suspense` for non-blocking product streaming.
  * 
- * -Accessibility-ready search interface with ARIA labels and clear functionality.
+ * -**Fault Tolerance**: Wrapped in an `ErrorBoundary` to catch and display UI-friendly errors.
  * 
- * @returns {JSX.Element} The rendered Home Page view.
+ * -**Component Composition**: Orchestrates `SearchForm` and `ProductList` as independent units.
+ * 
+ * @returns {JSX.Element} The structured landing page with search and product grid.
  */
 export default function HomePage() {
-   const {
+  const {
     searchQuery,
     productsPromise,
     handleSearchChange,
@@ -34,25 +36,11 @@ export default function HomePage() {
   return (
     <section>
       <section className="search-section">
-        <div className="search-input-wrapper">
-          <input
-            type="text"
-            className="search-input"
-            placeholder={HomePageLabels?.INPUT_PLACEHOLDER}
-            value={searchQuery}
-            onChange={(e) => handleSearchChange(e.target.value)}
-            aria-label={HomePageLabels?.INPUT_ARIA_LABEL}
-          />
-          {searchQuery && (
-            <button
-              className="search-clear"
-              onClick={() => clearSearch()}
-              aria-label={HomePageLabels?.BUTTON_ARIA_LABEL}
-            >
-              ×
-            </button>
-          )}
-        </div>
+       <SearchForm 
+          searchQuery={searchQuery}
+          onSearchChange={handleSearchChange}
+          onClear={clearSearch}
+        />
         <ErrorBoundary fallback={<div className="error-state">{HomePageLabels?.ERROR_LOADING_PRODUCTS}</div>}>
           <Suspense fallback={<div className="loading-state">{HomePageLabels?.LOADING}</div>}>
             <ProductList productsPromise={productsPromise} />

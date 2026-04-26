@@ -19,6 +19,13 @@ export interface ImageModel {
  ******** Home Page Components *********
  **************************************/
 
+export interface SearchFormModel {
+  searchQuery: string;
+  // eslint-disable-next-line no-unused-vars
+  onSearchChange: (value: string) => void;
+  onClear: () => void;
+}
+
 /**
  * Interface for the SearchInfo
  */

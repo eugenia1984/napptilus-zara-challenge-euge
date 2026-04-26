@@ -99,6 +99,7 @@ ol {
 }
 
 .search-input {
+  appearance: none;
   width: 100%;
   border: none;
   border-bottom: var(--border-thin);
@@ -112,6 +113,14 @@ ol {
   &::placeholder {
     color: var(--text-secondary);
   }
+}
+
+.search-input::-webkit-search-decoration,
+.search-input::-webkit-search-cancel-button,
+.search-input::-webkit-search-results-button,
+.search-input::-webkit-search-results-decoration {
+  display: none;
+  -webkit-appearance: none;
 }
 
 .search-clear {
@@ -194,15 +203,15 @@ ol {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  border-bottom: var(--border-thin);
+  border-bottom: var(--border-thin-primary);
 
   @media (max-width: 767px) {
-    border: var(--border-thin);
-    border-bottom: var(--border-thin);
+    border: var(--border-thin-secondary);
+    border-bottom: var(--border-thin-secondary);
   }
 
   @media (min-width: 768px) {
-    border-right: var(--border-thin);
+    border-right: var(--border-thin-secondary);
   }
 
   &::before {
