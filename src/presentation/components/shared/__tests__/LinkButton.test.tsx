@@ -23,7 +23,7 @@ describe("LinkButton Component", () => {
     expect(link).toHaveAttribute("href", mockProps.to)
   })
 
-  it("should apply the correct CSS class", () => {
+  it("should apply the default CSS class 'link-btn' when no className is provided", () => {
     render(
       <BrowserRouter>
         <LinkButton {...mockProps} />
@@ -32,6 +32,19 @@ describe("LinkButton Component", () => {
 
     const link = screen.getByRole("link")
     expect(link).toHaveClass("link-btn")
+  })
+
+  it("should apply a custom CSS class when the className prop is provided", () => {
+    const customClass = "custom-action-button"
+    render(
+      <BrowserRouter>
+        <LinkButton {...mockProps} className={customClass} />
+      </BrowserRouter>
+    )
+
+    const link = screen.getByRole("link")
+    expect(link).toHaveClass(customClass)
+    expect(link).not.toHaveClass("link-btn")
   })
 
   it("should use aria-label for accessibility if provided", () => {

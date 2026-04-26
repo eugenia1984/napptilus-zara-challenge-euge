@@ -1,0 +1,12 @@
+// src/domain/constants/product.page.labels.ts
+
+export const ProductPageLabels = {
+  BACK_BUTTON_ARIA_LABEL: "Back button navigation",
+  CHOOSE_STORAGE: "Storage ¿How much space do you need?",
+  CHOOSE_COLOR: "Color. Pick your favorite.",
+  SPECIFICATIONS: "Specifications",
+  BRAND: "Brand",
+  DESCRIPTION: "Description",
+  SIMILAR_PRODUCTS: "Similar products",
+  LOADING_PRODUCTS: "Loading product...",
+} as const;

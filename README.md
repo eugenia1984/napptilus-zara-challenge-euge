@@ -135,15 +135,6 @@ VITE_API_KEY=87909682e6cd74208f41a6ef39fe4191
 
 * **Console Cleanliness**: Developed to ensure the browser console remains free of errors and warnings during execution.
 
-
-## 📖 Detailed Documentation
-
-For a deeper dive into the technical decisions and architectural patterns used in this project, please refer to:
-
-* [Architecture & Layers](./docs/architecture.md)
-* [Testing Strategy](./docs/testing.md)
-* [State Management & Persistence](./docs/state-management.md)
-
 ---
 
 *Developed as part of the Napptilus Tech Labs / Zara Technical Challenge.*
