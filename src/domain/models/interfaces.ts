@@ -19,15 +19,22 @@ export interface ImageModel {
  ******** Home Page Components *********
  **************************************/
 
- /**
-  * Interface for the SearchInfo
-  */
- export interface SearchInfoModel {
+/**
+ * Interface for the SearchInfo
+ */
+export interface SearchInfoModel {
   productsAmount: number;
- }
+}
 
 /**
  * Interface for the ProductList
+ */
+export interface ProductListModel {
+  productsPromise: Promise<ProductListItem[]>;
+}
+
+/**
+ * Interface for the ProductListItem
  */
 export interface ProductListItem {
   id: string;

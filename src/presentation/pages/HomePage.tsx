@@ -1,36 +1,35 @@
-import { useEffect, useState } from "react"
+// src/presentation/pages/HomePage.tsx
+
+import { Suspense } from "react"
 import { HomePageLabels } from "../../domain/constants/home.page.labels"
-import type { ProductListItem } from "../../domain/models/interfaces"
-import ProductCard from "../components/home-page/ProductCard"
-import SearchInfo from "../components/home-page/SearchInfo"
-import { useDebounce } from "../hooks/useDebounce"
-import { getProducts } from "../../application/flows/getProductsFlow"
+import { ErrorBoundary } from "react-error-boundary"
+import ProductList from "../components/home-page/ProductList"
+import { useHomePageLogic } from "./useHomePage"
 
+/**
+ * Main landing page component that serves as the product catalog.
+ * * This page implements a "Search-as-you-type" pattern with debouncing, 
+ * leveraging React 19's asynchronous rendering capabilities.
+ * 
+ * Key features:
+ * 
+ * -Logic decoupling via `useHomePageLogic` custom hook.
+ * 
+ * -Non-blocking UI using `Suspense` for product fetching.
+ * 
+ * -Robust error handling through `ErrorBoundary`.
+ * 
+ * -Accessibility-ready search interface with ARIA labels and clear functionality.
+ * 
+ * @returns {JSX.Element} The rendered Home Page view.
+ */
 export default function HomePage() {
-  const [products, setProducts] = useState<ProductListItem[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [searchQuery, setSearchQuery] = useState("");
-
-  const debouncedSearchQuery = useDebounce(searchQuery, 300);
-
-  useEffect(() => {
-    async function fetchProducts() {
-      try {
-        setLoading(true);
-        setError(null);
-        const data = await getProducts(debouncedSearchQuery || undefined, 20);
-        setProducts(data);
-      } catch (err) {
-        setError(`${HomePageLabels?.ERROR_LOADING_PRODUCTS}`);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchProducts();
-  }, [debouncedSearchQuery]);
-
+   const {
+    searchQuery,
+    productsPromise,
+    handleSearchChange,
+    clearSearch,
+  } = useHomePageLogic();
 
   return (
     <section>
@@ -41,35 +40,24 @@ export default function HomePage() {
             className="search-input"
             placeholder={HomePageLabels?.INPUT_PLACEHOLDER}
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={(e) => handleSearchChange(e.target.value)}
             aria-label={HomePageLabels?.INPUT_ARIA_LABEL}
           />
           {searchQuery && (
             <button
               className="search-clear"
-              onClick={() => setSearchQuery("")}
+              onClick={() => clearSearch()}
               aria-label={HomePageLabels?.BUTTON_ARIA_LABEL}
             >
               ×
             </button>
           )}
         </div>
-
-        <SearchInfo productsAmount={products.length}/>
-
-        {loading ? (
-          <div className="loading-state">{HomePageLabels?.LOADING}</div>
-        ) : error ? (
-          <div className="error-state">{error}</div>
-        ) : products.length === 0 ? (
-          <div className="empty-state">{HomePageLabels?.NO_PRODUCTS}</div>
-        ) : (
-          <div className="product-grid">
-            {products.map((product, index) => (
-              <ProductCard key={`${product.id}-${index}`} product={product} />
-            ))}
-          </div>
-        )}
+        <ErrorBoundary fallback={<div className="error-state">{HomePageLabels?.ERROR_LOADING_PRODUCTS}</div>}>
+          <Suspense fallback={<div className="loading-state">{HomePageLabels?.LOADING}</div>}>
+            <ProductList productsPromise={productsPromise} />
+          </Suspense>
+        </ErrorBoundary>
       </section>
     </section >
   )
