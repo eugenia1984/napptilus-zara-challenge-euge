@@ -52,6 +52,16 @@ export interface StorageOption {
   price: number;
 }
 
+export interface ProductDetailContentModel {
+   productPromise: Promise<ProductDetail>
+  selectedColor: ColorOption | null
+  // eslint-disable-next-line no-unused-vars
+  setSelectedColor: (color: ColorOption | null) => void
+  selectedStorage: StorageOption | null
+  // eslint-disable-next-line no-unused-vars
+  setSelectedStorage: (storage: StorageOption | null) => void
+}
+
 export interface ProductDetail extends ProductListItem {
   description: string;
   colorOptions: ColorOption[];
