@@ -7,22 +7,13 @@ import CartTitle from "../components/cart-page/CartTitle"
 import CartTotal from "../components/cart-page/CartTotal"
 import CartPayButton from "../components/cart-page/CartPayButton"
 import LinkButton from "../components/shared/LinkButton"
+import useCartPageLogic from "./useCartPageLogic"
 
 export default function CartPage() {
-  // TODO: mock till integration
-  const cartItems = [
-    {
-      productId: "SMG-A05S",
-      color: "#000000",
-      storage: "64 GB",
-      imageUrl: "http://prueba-tecnica-api-tienda-moviles.onrender.com/images/SMG-A05S-black.webp",
-      name: "Black",
-      quantity: 2,
-      price: "119"
-    }
-  ];
-  const handleRemoveFromCart = () => { };
-  const cartTotalPrice = 100;
+  const { 
+    cartItems,
+    handleRemoveFromCart,
+    cartTotalPrice } = useCartPageLogic();
 
   return (
     <section className="cart-page">

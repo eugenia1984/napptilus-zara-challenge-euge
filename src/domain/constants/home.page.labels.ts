@@ -6,4 +6,7 @@ export const HomePageLabels = {
   BUTTON_ARIA_LABEL: "Clear search",
   RESULTS: "Results",
   FILTER: "Filter",
+  ERROR_LOADING_PRODUCTS: "The products could not be loaded. Please try again later.",
+  LOADING: "Loading...",
+  NO_PRODUCTS: "No products found",
 } as const;

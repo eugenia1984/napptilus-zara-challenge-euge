@@ -18,7 +18,7 @@ describe("Layout Component", () => {
     expect(homeLink).toBeInTheDocument();
     expect(homeLink).toHaveAttribute("href", AppPaths.HOME);
 
-    expect(screen.getByRole("img", { name: /mbst logo icon/i })).toBeInTheDocument();
+    expect(screen.getByRole("img", { name: /MBST brand logo/i })).toBeInTheDocument();
   });
 
   it("should show the cart link and icon when NOT on the cart page", () => {

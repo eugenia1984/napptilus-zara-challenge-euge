@@ -1,6 +1,7 @@
 // src/presentation/components/cart-page/CartItem.tsx
 
 import { CartPageLabels } from "../../../domain/constants/cart.page.labels"
+import { SharedLabels } from "../../../domain/constants/shared.labels"
 import type { CartItemProps } from "../../../domain/models/interfaces"
 
 /**
@@ -28,7 +29,7 @@ export default function CartItem({ item, handleRemoveFromCart, index }: CartItem
           <span className="cart-item-option">
             {item.storage} | {item.color}{item.quantity > 1 ? ` | x${item.quantity}` : ""}
           </span>
-          <span className="cart-item-price">{item.price} {CartPageLabels?.EUR}</span>
+          <span className="cart-item-price">{item.price} {SharedLabels?.EUR}</span>
         </div>
 
         <button

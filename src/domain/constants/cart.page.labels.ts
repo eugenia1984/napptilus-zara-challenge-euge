@@ -2,7 +2,6 @@
 
 export const CartPageLabels = {
   TITLE: "Cart",
-  EUR: "EUR",
   DELETE: "Eliminar",
   TOTAL: "Total",
   CONTINUE_SHOPPING: "Continue shopping",

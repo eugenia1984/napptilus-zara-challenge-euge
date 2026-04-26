@@ -1,12 +1,48 @@
 // src/domain/models/interfaces.ts
 
 /****************************************
- ******** Home Page Components ********* 
+ ********* Shared Components ************
+ ***************************************/
+
+/**
+ * Interface for the Image shared component
+ */
+export interface ImageModel {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  className?: string;
+}
+
+/****************************************
+ ******** Home Page Components *********
  **************************************/
 
- /**
-  * Interface for the ProductList
-  */
+export interface SearchFormModel {
+  searchQuery: string;
+  // eslint-disable-next-line no-unused-vars
+  onSearchChange: (value: string) => void;
+  onClear: () => void;
+}
+
+/**
+ * Interface for the SearchInfo
+ */
+export interface SearchInfoModel {
+  productsAmount: number;
+}
+
+/**
+ * Interface for the ProductList
+ */
+export interface ProductListModel {
+  productsPromise: Promise<ProductListItem[]>;
+}
+
+/**
+ * Interface for the ProductListItem
+ */
 export interface ProductListItem {
   id: string;
   brand: string;
@@ -14,7 +50,6 @@ export interface ProductListItem {
   basePrice: number;
   imageUrl: string;
 }
-
 
 export interface ColorOption {
   name: string;
@@ -35,6 +70,13 @@ export interface ProductDetail extends ProductListItem {
   specs: Record<string, string>;
 }
 
+/**
+ * Interface for the ProductCard component
+ */
+export interface ProductCardModel {
+  product: ProductListItem;
+}
+
 /*****************************************
  ****  Cart Page Interface components ****
  ****************************************/
@@ -46,7 +88,6 @@ export interface ProductDetail extends ProductListItem {
 export interface CartTitleModel {
   cartCount: number;
 }
-
 
 /**
  * Interface for the CartItem component props.
