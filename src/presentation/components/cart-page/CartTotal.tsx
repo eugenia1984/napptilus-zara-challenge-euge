@@ -1,6 +1,7 @@
 // src/presentation/components/cart-page/CartTotal.tsx
  
 import { CartPageLabels } from "../../../domain/constants/cart.page.labels"
+import { SharedLabels } from "../../../domain/constants/shared.labels"
 import type { CartTotalModel } from "../../../domain/models/interfaces"
 
 /**
@@ -18,7 +19,7 @@ export default function CartTotal({cartTotalPrice}: CartTotalModel) {
   return (
     <div className="cart-total">
       <span>{CartPageLabels?.TOTAL}</span>
-      <span>{cartTotalPrice} {CartPageLabels?.EUR}</span>
+      <span>{cartTotalPrice} {SharedLabels?.EUR}</span>
     </div>
   )
 }
