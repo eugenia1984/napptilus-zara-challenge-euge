@@ -16,9 +16,9 @@ import type { LinkButtonModel } from "../../../domain/models/interfaces"
  * <LinkButton text="Continue" to="/home" />
  * ```
  */
-export default function LinkButton({ text, to, ariaLabel }: LinkButtonModel) {
+export default function LinkButton({ text, to, ariaLabel, className }: LinkButtonModel) {
   return (
-    <Link to={to} className="link-btn" aria-label={ariaLabel}>
+    <Link to={to} className={className ?? "link-btn"} aria-label={ariaLabel}>
       {text}
     </Link>
   )

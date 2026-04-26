@@ -1,17 +1,16 @@
 // src/domain/models/interfaces.ts
 
+import type { Dispatch, RefObject, SetStateAction } from "react";
+
 /****************************************
  ********* Shared Components ************
  ***************************************/
 
-/**
- * Interface for the Image shared component
- */
 export interface ImageModel {
   src: string;
   alt: string;
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
   className?: string;
 }
 
@@ -26,23 +25,14 @@ export interface SearchFormModel {
   onClear: () => void;
 }
 
-/**
- * Interface for the SearchInfo
- */
 export interface SearchInfoModel {
   productsAmount: number;
 }
 
-/**
- * Interface for the ProductList
- */
 export interface ProductListModel {
   productsPromise: Promise<ProductListItem[]>;
 }
 
-/**
- * Interface for the ProductListItem
- */
 export interface ProductListItem {
   id: string;
   brand: string;
@@ -70,28 +60,44 @@ export interface ProductDetail extends ProductListItem {
   specs: Record<string, string>;
 }
 
-/**
- * Interface for the ProductCard component
- */
 export interface ProductCardModel {
   product: ProductListItem;
 }
 
 /*****************************************
+ ********* Product Page ****************** 
+ ****************************************/
+export interface ProductImageModel {
+  srcImage: string;
+  altImage: string;
+}
+
+export interface ProductHeaderModel {
+  productName: string;
+  productPrice: number;
+}
+
+export interface SimilarProductsListModel {
+  product: ProductDetail;
+  similarGridRef: RefObject<HTMLDivElement | null>;
+  thumbRef: RefObject<HTMLDivElement | null>;
+}
+
+export interface ProductOptionsModel {
+  product: ProductDetail
+  selectedStorage: StorageOption | null
+  setSelectedStorage: Dispatch<SetStateAction<StorageOption | null>>
+  selectedColor: ColorOption | null
+  setSelectedColor: Dispatch<SetStateAction<ColorOption | null>>
+}
+/*****************************************
  ****  Cart Page Interface components ****
  ****************************************/
 
-/**
- * Interface for the CartTitle component.
- * - cartCount: The total number of items currently in the shopping cart.
- */
 export interface CartTitleModel {
   cartCount: number;
 }
 
-/**
- * Interface for the CartItem component props.
- */
 export interface CartItemModel {
   productId: string;
   color: string;
@@ -99,43 +105,32 @@ export interface CartItemModel {
   imageUrl: string;
   name: string;
   quantity: number;
-  price: string;
+  price: number;
+  brand: string;
 }
 
-/**
- * Interface for the CartItem component props.
- * Includes: the item data, removal handler and index
- */
 export interface CartItemProps {
   item: CartItemModel;
   handleRemoveFromCart: () => void;
   index: number;
 }
 
-/**
- * Interface for the CartTotal component props.
- */
 export interface CartTotalModel {
   cartTotalPrice: number;
 }
 
-/*****************************************
- *****  Buttons Interface components *****
- ****************************************/
+/*******************************************
+ ******  Buttons Interface components ******
+ ******************************************/
 
-/**
- * Interface for the PrimaryButton component props.
- */
 export interface PrimaryButtonModel {
   text: string;
   ariaLabel?: string;
 }
 
-/**
- * Interface for the LinkButton component props.
- */
 export interface LinkButtonModel {
   text: string;
   to: string;
   ariaLabel?: string;
+  className?: string;
 }
