@@ -24,19 +24,26 @@ The project follows a modular architecture inspired by Clean Architecture princi
 
 ```
 src
- ├── mocks             # Mock data for testing and development
- ├── application       # Business logic and coordination
- │     └── use-cases   # Application logic for products and details
- ├── assets            # Static files (images, global fonts)
- ├── domain            # constants for literals and models (interfaces and types)
- ├── infrastructure    # External tools and state persistence
- │     └── context     # Cart state management and localStorage sync
- ├── presentation      # UI Layer
- │     ├── components  # Reusable UI atoms and molecules
- │     ├── hooks       # Custom React hooks (logic reuse)
- │     └── pages       # Main views (Home, Product, Cart)
- ├── test              # Set up test
- └── utils             # Formatting and helper functions
+ ├── mocks                   # Mock data for testing and development
+ ├── application             # Business logic and coordination
+ │     ├── flows             # Use cases and data transformation pipelines
+ │     └── fetchApi          # Base API client with environment config and typing
+ ├── assets                  # Static assets (images, global icons)
+ ├── domain         
+ │     ├── constants         # Application literals and configuration constants
+ │     └── models            # Domain entities, interfaces, and TypeScript types
+ ├── infrastructure          # External tools and state persistence
+ │     └── context           # Global state (Cart) and localStorage synchronization
+ ├── presentation            # UI Layer (React)
+ │     ├── components        # Component-based architecture
+ │     │    ├── cart-page    # Specialized components for the shopping cart
+ │     │    ├── home-page    # Specialized components for the product catalog
+ │     │    ├── product-page # Specialized components for product details
+ │     │    └── shared       # Generic UI primitives (Buttons, Loaders, ErrorMessages)
+ │     ├── hooks             # Custom React hooks for shared UI logic
+ │     └── pages             # Main route views (Orchestrators)
+ ├── test                    # Test setup, global mocks, and vitest configuration
+ └── utils                   # Formatting helpers and pure utility functions
 ```
 
 ## 📋 Features

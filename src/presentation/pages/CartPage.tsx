@@ -8,19 +8,52 @@ import CartTotal from "../components/cart-page/CartTotal"
 import CartPayButton from "../components/cart-page/CartPayButton"
 import LinkButton from "../components/shared/LinkButton"
 import useCartPageLogic from "./useCartPageLogic"
+import EmptyCart from "../components/cart-page/EmptyCart"
 
+/**
+ * CartPage component that serves as the main view for the shopping cart.
+ * 
+ * This page orchestrates the display of added products, total price calculations, 
+ * and the empty state interface. It follows the container-component pattern by 
+ * delegating business logic to the `useCartPageLogic` hook.
+ * 
+ * Key technical implementations:
+ * 
+ * -**Conditional Rendering**: Switches between the `EmptyCart` component and the 
+ * detailed list based on the cart's length.
+ * 
+ * -**State Management Integration**: Consumes the global cart state through a 
+ * specialized logic hook to handle item removal and price updates.
+ * 
+ * - **Modular UI**: Composed of specialized sub-components (`CartItem`, `CartTotal`, 
+ * `CartPayButton`) to ensure high maintainability and focused responsibilities.
+ * 
+ * @returns {JSX.Element} The rendered shopping cart page or the empty state view.
+ */
 export default function CartPage() {
-  const { 
+  const {
     cartItems,
     handleRemoveFromCart,
-    cartTotalPrice } = useCartPageLogic();
+    cartTotalPrice
+  } = useCartPageLogic();
+
+  if (cartItems.length === 0) {
+    return (
+      <EmptyCart />
+    );
+  }
 
   return (
     <section className="cart-page">
       <CartTitle cartCount={cartItems.length} />
       <section className="cart-items-list">
         {cartItems.map((item, index) => (
-          < CartItem item={item} handleRemoveFromCart={handleRemoveFromCart} index={index} key={item.productId} />
+          < CartItem
+            item={item}
+            handleRemoveFromCart={handleRemoveFromCart}
+            index={index}
+            key={item.productId}
+          />
         ))}
       </section>
       <section className="cart-summary">

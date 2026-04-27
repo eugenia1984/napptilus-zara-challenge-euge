@@ -7,8 +7,7 @@ import type { CartItemProps } from "../../../domain/models/interfaces"
 /**
  * Individual item component for the shopping cart list.
  * 
- * - Displays product image, technical specifications (storage, color), 
- * quantity, and price.
+ * - Displays product image, technical specifications (storage, color), quantity, and price.
  * 
  * - Provides a removal action via the `handleRemoveFromCart` callback.
  * 
@@ -17,25 +16,27 @@ import type { CartItemProps } from "../../../domain/models/interfaces"
  * @param {CartItemProps} props - Component properties including the item data, removal handler and index.
  */
 export default function CartItem({ item, handleRemoveFromCart, index }: CartItemProps) {
+  const { productId, color, storage, imageUrl, name, quantity, price } = item;
+
   return (
-    <div key={`${item.productId}-${item.color}-${item.storage}-${index}`} className="cart-item">
+    <div key={`${productId}-${color}-${storage}-${index}`} className="cart-item">
       <div className="cart-item-image-container">
-        <img src={item.imageUrl} alt={item.name} className="cart-item-image" />
+        <img src={imageUrl} alt={name} className="cart-item-image" />
       </div>
 
       <div className="cart-item-details">
         <div className="cart-item-info">
-          <span className="cart-item-name">{item.name}</span>
+          <span className="cart-item-name">{name}</span>
           <span className="cart-item-option">
-            {item.storage} | {item.color}{item.quantity > 1 ? ` | x${item.quantity}` : ""}
+            {storage} | {color}{quantity > 1 ? ` | x${quantity}` : ""}
           </span>
-          <span className="cart-item-price">{item.price} {SharedLabels?.EUR}</span>
+          <span className="cart-item-price">{price} {SharedLabels?.EUR}</span>
         </div>
 
         <button
           className="cart-item-remove"
-          onClick={() => handleRemoveFromCart()}
-          aria-label={`Remove ${item.name} in ${item.color} ${item.storage} from cart`}
+          onClick={() => handleRemoveFromCart(productId, color, storage)}
+          aria-label={`Remove ${name} in color ${color} with ${storage} from cart`}
         >
           {CartPageLabels?.DELETE}
         </button>

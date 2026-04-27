@@ -653,6 +653,49 @@ ol {
 }
 
 /************ Cart Page **************/
+.cart-empty {
+  padding: var(--spacing-md) 0 var(--spacing-lg);
+}
+
+.cart-title {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-regular);
+  text-transform: uppercase;
+  margin-bottom: var(--spacing-md);
+}
+
+.cart-title span {
+  display: inline;
+}
+
+.cart-empty-actions {
+  margin-top: var(--spacing-md);
+}
+
+.cart-empty-btn {
+  flex: 1;
+  display: block;
+  text-align: center;
+  padding: 14px 8px;
+  font-family: var(--font-family);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  border: var(--border-thin);
+  color: var(--text-primary);
+  background: transparent;
+  cursor: pointer;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: #f9f9f9;
+  }
+
+  @media (min-width: 768px) {
+    flex: 0;
+    padding: 18px 40px;
+    min-width: 250px;
+  }
+}
 
 .cart-page {
   display: flex;

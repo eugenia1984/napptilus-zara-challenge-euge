@@ -7,6 +7,6 @@ export const HomePageLabels = {
   RESULTS: "Results",
   FILTER: "Filter",
   ERROR_LOADING_PRODUCTS: "The products could not be loaded. Please try again later.",
-  LOADING: "Loading...",
+  LOADING: "Loading products ...",
   NO_PRODUCTS: "No products found",
 } as const;

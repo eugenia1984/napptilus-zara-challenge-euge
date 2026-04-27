@@ -1,6 +1,6 @@
 // src/presentation/components/product-page/ProductImageSection.tsx
 
-import type { ProductImageModel } from "../../../domain/models/interfaces"
+import type { ProductImageProps } from "../../../domain/models/interfaces"
 import Image from "../shared/Image"
 
 /**
@@ -9,7 +9,7 @@ import Image from "../shared/Image"
  * It encapsulates the product's visual representation, ensuring 
  * consistent styling and accessibility via alternative text.
  * 
- * @param {ProductImageModel} props - Component properties.
+ * @param {ProductImageProps} props - Component properties.
  * @param {string} props.srcImage - The source URL of the product image.
  * @param {string} props.altImage - Descriptive text for the image (accessibility).
  * 
@@ -21,7 +21,7 @@ import Image from "../shared/Image"
  * altImage="iPhone 15 Pro" 
  * />
  */
-export default function ProductImage({ srcImage, altImage }: ProductImageModel) {
+export default function ProductImage({ srcImage, altImage }: ProductImageProps) {
   return (
     <div className="product-image-section">
       <Image src={srcImage} alt={altImage} className="product-detail-image" />

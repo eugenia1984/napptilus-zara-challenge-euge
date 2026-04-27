@@ -5,6 +5,6 @@ export const SharedLabels = {
   ALT_BAG_ICON: "Shopping bag icon",
   HOME_PAGE_ICON_ARIA_LABEL: "MBST home page",
   EUR: "EUR",
-  BACK: "BACK",
-  ADD: "ADD"
+  BACK: "Back",
+  ADD: "Add"
 } as const;

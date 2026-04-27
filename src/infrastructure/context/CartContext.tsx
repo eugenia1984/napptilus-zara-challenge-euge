@@ -6,7 +6,7 @@ interface CartContextType {
   // eslint-disable-next-line no-unused-vars
   addToCart: (item: CartItemModel) => void;
   // eslint-disable-next-line no-unused-vars
-  removeFromCart: (productId: string, color: string, storage: string) => void;
+  handleRemoveFromCart: (productId: string, color: string, storage: string) => void;
   cartTotalItems: number;
   cartTotalPrice: number;
 }
@@ -43,7 +43,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     });
   };
 
-  const removeFromCart = (productId: string, color: string, storage: string) => {
+  const handleRemoveFromCart = (productId: string, color: string, storage: string) => {
     setCartItems((prevItems) =>
       prevItems.filter(
         (item) => !(item.productId === productId && item.color === color && item.storage === storage)
@@ -55,7 +55,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const cartTotalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, cartTotalItems, cartTotalPrice }}>
+    <CartContext.Provider value={{ cartItems, addToCart, handleRemoveFromCart, cartTotalItems, cartTotalPrice }}>
       {children}
     </CartContext.Provider>
   );

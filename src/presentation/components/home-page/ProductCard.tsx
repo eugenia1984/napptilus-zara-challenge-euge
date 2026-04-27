@@ -1,7 +1,7 @@
 // src/presentation/components/home-page/ProductCard.tsx
 
 import { Link } from "react-router-dom"
-import type { ProductCardModel } from "../../../domain/models/interfaces"
+import type { ProductCardProps } from "../../../domain/models/interfaces"
 import Image from "../shared/Image"
 import { SharedLabels } from "../../../domain/constants/shared.labels";
 
@@ -12,7 +12,7 @@ import { SharedLabels } from "../../../domain/constants/shared.labels";
  * card in a link to the product's detail page. It follows a minimal design 
  * pattern suitable for luxury or high-fashion e-commerce.
  * 
- * @param {ProductCardModel} props - The component props containing the product data.
+ * @param {ProductCardProps} props - The component props containing the product data.
  * @param {ProductListItem} props.product - The specific product information to display.
  * @example
  * ```tsx
@@ -26,7 +26,7 @@ import { SharedLabels } from "../../../domain/constants/shared.labels";
  * <ProductCard product={mockProduct} />
  * ```
  */
-export default function ProductCard({ product }: ProductCardModel) {
+export default function ProductCard({ product }: ProductCardProps) {
   return (
     <Link to={`/product/${product.id}`} className="product-card">
       <div className="product-image-container">

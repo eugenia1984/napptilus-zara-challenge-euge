@@ -1,5 +1,5 @@
 // src/presentation/components/shared/PrimaryButton.tsx
-import type { PrimaryButtonModel } from "../../../domain/models/interfaces"
+import type { PrimaryButtonProps } from "../../../domain/models/interfaces"
 
 /**
  * A common primary button that follows the brand's visual identity.
@@ -7,7 +7,7 @@ import type { PrimaryButtonModel } from "../../../domain/models/interfaces"
  * Supports custom labels for enhanced accessibility when the visible text
  * is not descriptive enough.
  * 
- * @param {PrimaryButtonModel} props - Component properties.
+ * @param {PrimaryButtonProps} props - Component properties.
  * 
  * @example
  * ```tsx
@@ -17,7 +17,7 @@ import type { PrimaryButtonModel } from "../../../domain/models/interfaces"
  * <PrimaryButton text="Pay" ariaLabel="Proceed to checkout and pay" />
  * 
  */
-export default function PrimaryButton({ text, ariaLabel }: PrimaryButtonModel) {
+export default function PrimaryButton({ text, ariaLabel }: PrimaryButtonProps) {
   return (
     <button className="primary-btn" type="button" aria-label={ariaLabel}>
       {text}

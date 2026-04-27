@@ -8,6 +8,8 @@ import { AppPaths } from "../../domain/constants/paths"
 import { SharedLabels } from "../../domain/constants/shared.labels"
 import { ProductPageLabels } from "../../domain/constants/product.page.labels"
 import ProductDetailContent from "../components/product-page/ProductDetailContent"
+import Loader from "../components/shared/Loader"
+import ErrorMessage from "../components/shared/ErrorMessage"
 
 /**
  * ProductPage component that manages the lifecycle and display of product details.
@@ -41,8 +43,8 @@ export default function ProductPage() {
         ariaLabel={ProductPageLabels?.BACK_BUTTON_ARIA_LABEL}
       />
 
-      <ErrorBoundary fallback={<div className="error-state">Error loading product</div>}>
-        <Suspense fallback={<div className="loading-state">{ProductPageLabels?.LOADING_PRODUCTS}</div>}>
+      <ErrorBoundary fallback={<ErrorMessage message={ProductPageLabels?.ERROR_LOADING_PRODUCT} />}>
+        <Suspense fallback={<Loader message={ProductPageLabels?.LOADING_PRODUCTS} />}>
           <ProductDetailContent {...logic} />
         </Suspense>
       </ErrorBoundary>

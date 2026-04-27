@@ -6,6 +6,8 @@ import { ErrorBoundary } from "react-error-boundary"
 import ProductList from "../components/home-page/ProductList"
 import { useHomePageLogic } from "./useHomePage"
 import SearchForm from "../components/home-page/SearchForm"
+import Loader from "../components/shared/Loader"
+import ErrorMessage from "../components/shared/ErrorMessage"
 
 /**
  * HomePage component that acts as the main orchestrator for the product catalog.
@@ -36,13 +38,13 @@ export default function HomePage() {
   return (
     <section>
       <section className="search-section">
-       <SearchForm 
+        <SearchForm
           searchQuery={searchQuery}
           onSearchChange={handleSearchChange}
           onClear={clearSearch}
         />
-        <ErrorBoundary fallback={<div className="error-state">{HomePageLabels?.ERROR_LOADING_PRODUCTS}</div>}>
-          <Suspense fallback={<div className="loading-state">{HomePageLabels?.LOADING}</div>}>
+        <ErrorBoundary fallback={<ErrorMessage message={HomePageLabels?.ERROR_LOADING_PRODUCTS} />}>
+          <Suspense fallback={<Loader message={HomePageLabels?.LOADING} />}>
             <ProductList productsPromise={productsPromise} />
           </Suspense>
         </ErrorBoundary>

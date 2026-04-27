@@ -7,6 +7,7 @@ import logoIcon from "../../../assets/logo.png"
 import Image from "./Image"
 import { SharedLabels } from "../../../domain/constants/shared.labels"
 import { useIsCartPage } from "../../hooks/useIsCartPage"
+import { useCart } from "../../../infrastructure/context/CartContext"
 
 /**
  * Main Layout component that serves as the application's master template.
@@ -25,8 +26,7 @@ import { useIsCartPage } from "../../hooks/useIsCartPage"
  */
 export default function Layout() {
   const isCartPage = useIsCartPage();
-  // TODO: change from context
-  const cardTotalItems = 0;
+  const { cartItems } = useCart();
 
   return (
     <div className="container">
@@ -41,12 +41,12 @@ export default function Layout() {
         </Link>
         {!isCartPage && (
           <div className="header-cart">
-            <Link to={AppPaths.CART} aria-label={`Cart page with ${cardTotalItems} items`}>
+            <Link to={AppPaths.CART} aria-label={`Go to Cart page with ${cartItems.length} items`}>
               <Image
                 src={bagIcon}
                 alt={SharedLabels?.ALT_BAG_ICON}
                 width={18}
-                height={18} /> {cardTotalItems}
+                height={18} /> {cartItems.length}
             </Link>
           </div>
         )}

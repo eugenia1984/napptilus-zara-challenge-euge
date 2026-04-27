@@ -1,15 +1,15 @@
 // src/presentation/components/shared/Image.tsx
 
-import type { ImageModel } from "../../../domain/models/interfaces"
+import type { ImageProps } from "../../../domain/models/interfaces"
 
 /**
  * Base Image component to standardize all assets across the app.
  * 
  * It provides a consistent way to handle dimensions and accessibility.
  * 
- * @param {ImageModel} props - Component properties.
+ * @param {ImageProps} props - Component properties.
  */
-export default function Image({ src, alt, width, height, className }: ImageModel) {
+export default function Image({ src, alt, width, height, className }: ImageProps) {
   return (
     <img 
       src={src} 

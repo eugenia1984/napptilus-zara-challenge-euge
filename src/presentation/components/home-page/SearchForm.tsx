@@ -1,7 +1,7 @@
 // src/presentation/components/home-page/SearchForm.tsx
 
 import { HomePageLabels } from "../../../domain/constants/home.page.labels"
-import type { SearchFormModel } from "../../../domain/models/interfaces"
+import type { SearchFormProps } from "../../../domain/models/interfaces"
 
 /**
  * SearchForm component that provides a semantic search interface for product filtering.
@@ -10,7 +10,7 @@ import type { SearchFormModel } from "../../../domain/models/interfaces"
  * and a clear-action button. It prevents default form submission to support 
  * modern reactive search patterns.
  * 
- * @param {SearchFormModel} props - The properties for the component.
+ * @param {SearchFormProps} props - The properties for the component.
  * @param {string} props.searchQuery - The current value of the search input.
  * @param {Function} props.onSearchChange - Callback triggered on every keystroke to update the search state.
  * @param {Function} props.onClear - Callback to reset the search query and return to the initial state.
@@ -28,7 +28,7 @@ export default function SearchForm({
   searchQuery,
   onSearchChange,
   onClear
-}: SearchFormModel) {
+}: SearchFormProps) {
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault()

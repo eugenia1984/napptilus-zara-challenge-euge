@@ -1,7 +1,7 @@
 // src/presentation/components/product-page/SimilarProductsList.tsx
 
 import { ProductPageLabels } from "../../../domain/constants/product.page.labels"
-import type { SimilarProductsListModel } from "../../../domain/models/interfaces"
+import type { SimilarProductsListProps } from "../../../domain/models/interfaces"
 import ProductCard from "../home-page/ProductCard"
 
 /**
@@ -10,11 +10,11 @@ import ProductCard from "../home-page/ProductCard"
  * It includes a custom scroll indicator (thumb) whose logic is managed 
  * via refs provided by the parent component.
  * 
- * @param {SimilarProductsListModel} props - Component properties.
+ * @param {SimilarProductsListProps} props - Component properties.
  * 
  * @returns {JSX.Element} The rendered similar products section.
  */
-export default function SimilarProductsList({ product, similarGridRef, thumbRef }: SimilarProductsListModel) {
+export default function SimilarProductsList({ product, similarGridRef, thumbRef }: SimilarProductsListProps) {
 
   return (
     <div className="similar-products-section">

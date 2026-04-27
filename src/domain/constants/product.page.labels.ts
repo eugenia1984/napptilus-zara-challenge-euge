@@ -9,4 +9,5 @@ export const ProductPageLabels = {
   DESCRIPTION: "Description",
   SIMILAR_PRODUCTS: "Similar products",
   LOADING_PRODUCTS: "Loading product...",
+  ERROR_LOADING_PRODUCT: "The product could not be loaded. Please try again later.",
 } as const;
