@@ -36,7 +36,9 @@ export default function HomePage() {
   } = useHomePageLogic();
 
   return (
-    <section>
+    <>
+      <title>MBST | Explore our Mobile Catalog</title>
+      <meta name="description" content="Discover the latest smartphones with the best prices." />
       <section className="search-section">
         <SearchForm
           searchQuery={searchQuery}
@@ -49,6 +51,6 @@ export default function HomePage() {
           </Suspense>
         </ErrorBoundary>
       </section>
-    </section >
+    </ >
   )
 }

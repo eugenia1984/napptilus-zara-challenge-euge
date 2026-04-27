@@ -11,18 +11,24 @@ import { useCart } from "../../../infrastructure/context/CartContext"
 
 /**
  * Main Layout component that serves as the application's master template.
- *  
+ * 
  * This component provides a persistent header and a responsive container for the 
  * application's views. It manages the global navigation shell, including the 
- * brand logo and the conditional shopping cart indicator.
+ * brand logo and the dynamic shopping cart indicator.
  * 
- * * Key responsibilities:
+ * ### Technical Implementation:
  * 
- * -Provides a consistent header across all application pages.
+ * -**Global State Integration**: Consumes `CartContext` to display real-time item counts.
  * 
- * -Manages conditional rendering of the cart icon based on the current route.
+ * -**Route Awareness**: Utilizes `useIsCartPage` custom hook to conditionally hide the 
+ * cart icon, preventing redundant navigation when already on the Cart view.
  * 
- * -Implements accessibility through semantic HTML and ARIA labels.
+ * -**Content Injection**: Uses React Router's `<Outlet />` to render child route components.
+ * 
+ * -**Accessibility**: Implements dynamic ARIA labels for the cart link to inform 
+ * screen readers about the current quantity of items.
+ * 
+ * @returns {JSX.Element} The structured application shell with a global header and main content area.
  */
 export default function Layout() {
   const isCartPage = useIsCartPage();

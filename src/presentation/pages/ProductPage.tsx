@@ -32,7 +32,9 @@ import ErrorMessage from "../components/shared/ErrorMessage"
  * @returns {JSX.Element} The structured product page with navigation and async content loading.
  */
 export default function ProductPage() {
-  const logic = useProductPageLogic()
+  const logic = useProductPageLogic();
+
+  if (!logic.id) return <ErrorMessage message={ProductPageLabels?.ERROR_LOADING_PRODUCT} />;
 
   return (
     <div className="product-page">
@@ -43,9 +45,9 @@ export default function ProductPage() {
         ariaLabel={ProductPageLabels?.BACK_BUTTON_ARIA_LABEL}
       />
 
-      <ErrorBoundary fallback={<ErrorMessage message={ProductPageLabels?.ERROR_LOADING_PRODUCT} />}>
+      <ErrorBoundary key={logic.id} fallback={<ErrorMessage message={ProductPageLabels?.ERROR_LOADING_PRODUCT} />}>
         <Suspense fallback={<Loader message={ProductPageLabels?.LOADING_PRODUCTS} />}>
-          <ProductDetailContent {...logic} />
+          <ProductDetailContent key={logic.id} {...logic} id={logic.id} />
         </Suspense>
       </ErrorBoundary>
     </div>

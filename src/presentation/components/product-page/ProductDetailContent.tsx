@@ -1,7 +1,7 @@
 // src/presentation/components/product-page/ProductDetailContent.tsx
 
-import { use, useEffect, useRef } from "react"
-import type {  ProductDetailContentModel } from "../../../domain/models/interfaces"
+import { use, useEffect, useMemo, useRef } from "react"
+import type { ProductDetailContentModel } from "../../../domain/models/interfaces"
 import { useCart } from "../../../infrastructure/context/CartContext"
 import ProductImage from "./ProductImage"
 import ProductHeader from "./ProductHeader"
@@ -76,12 +76,35 @@ export default function ProductDetailContent({
     return () => grid.removeEventListener("scroll", updateThumb)
   }, [product])
 
-  const currentImage = selectedColor?.imageUrl || product.imageUrl
-  const currentPrice = product.basePrice + (selectedStorage?.price || 0)
+  // Scroll when product change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [product.id]);
+
+  const currentImage = useMemo(() => {
+    if (selectedColor?.imageUrl) {
+      return selectedColor.imageUrl;
+    }
+
+    if (product.colorOptions.length > 0) {
+      return product.colorOptions[0].imageUrl;
+    }
+
+    return product.imageUrl;
+  }, [selectedColor, product]);
+
+  const currentPrice = useMemo(() => {
+    return product.basePrice + (selectedStorage?.price || 0);
+  }, [product.basePrice, selectedStorage]);
+
   const canAddToCart = selectedColor && selectedStorage
 
   return (
     <>
+      <title>{`${product.name} | MBST Store`}</title>
+      <meta name="description" content={product.description} />
+      <meta property="og:title" content={product.name} />
+      <meta property="og:image" content={product.imageUrl} />
       <div className="product-detail-layout">
         <ProductImage srcImage={currentImage} altImage={product.name} />
         <div className="product-info-section">

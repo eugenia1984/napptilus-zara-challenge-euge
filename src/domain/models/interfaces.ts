@@ -100,11 +100,10 @@ export interface StorageOption {
 export interface ProductDetailContentModel {
   productPromise: Promise<ProductDetail>;
   selectedColor: ColorOption | null;
-  // eslint-disable-next-line no-unused-vars
-  setSelectedColor: (color: ColorOption | null) => void;
+  setSelectedColor: Dispatch<SetStateAction<ColorOption | null>>;
   selectedStorage: StorageOption | null;
-  // eslint-disable-next-line no-unused-vars
-  setSelectedStorage: (storage: StorageOption | null) => void;
+  setSelectedStorage: Dispatch<SetStateAction<StorageOption | null>>;
+  id: string;
 }
 
 export interface ProductDetail extends ProductListItem {
