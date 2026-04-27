@@ -44,28 +44,32 @@ export default function CartPage() {
   }
 
   return (
-    <section className="cart-page">
-      <CartTitle cartCount={cartItems.length} />
-      <section className="cart-items-list">
-        {cartItems.map((item, index) => (
-          < CartItem
-            item={item}
-            handleRemoveFromCart={handleRemoveFromCart}
-            index={index}
-            key={item.productId}
-          />
-        ))}
-      </section>
-      <section className="cart-summary">
-        <CartTotal cartTotalPrice={cartTotalPrice} />
-        <div className="cart-actions-row">
-          <LinkButton text={CartPageLabels?.CONTINUE_SHOPPING} to={AppPaths.HOME} />
-          <div className="cart-total-pay">
-            <CartTotal cartTotalPrice={cartTotalPrice} />
-            <CartPayButton />
+    <>
+      <title>{cartItems.length > 0 ? `(${cartItems.length}) Your Cart | MBST` : "Your Cart | MBST"}</title>
+      <meta name="robots" content="noindex, nofollow" />
+      <section className="cart-page">
+        <CartTitle cartCount={cartItems.length} />
+        <section className="cart-items-list">
+          {cartItems.map((item, index) => (
+            < CartItem
+              item={item}
+              handleRemoveFromCart={handleRemoveFromCart}
+              index={index}
+              key={item.productId}
+            />
+          ))}
+        </section>
+        <section className="cart-summary">
+          <CartTotal cartTotalPrice={cartTotalPrice} />
+          <div className="cart-actions-row">
+            <LinkButton text={CartPageLabels?.CONTINUE_SHOPPING} to={AppPaths.HOME} />
+            <div className="cart-total-pay">
+              <CartTotal cartTotalPrice={cartTotalPrice} />
+              <CartPayButton />
+            </div>
           </div>
-        </div>
+        </section>
       </section>
-    </section>
+    </>
   )
 }

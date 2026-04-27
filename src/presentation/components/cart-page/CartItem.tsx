@@ -3,6 +3,7 @@
 import { CartPageLabels } from "../../../domain/constants/cart.page.labels"
 import { SharedLabels } from "../../../domain/constants/shared.labels"
 import type { CartItemProps } from "../../../domain/models/interfaces"
+import { formatPrice } from "../../../utils/formatPrice";
 
 /**
  * Individual item component for the shopping cart list.
@@ -30,7 +31,7 @@ export default function CartItem({ item, handleRemoveFromCart, index }: CartItem
           <span className="cart-item-option">
             {storage} | {color}{quantity > 1 ? ` | x${quantity}` : ""}
           </span>
-          <span className="cart-item-price">{price} {SharedLabels?.EUR}</span>
+          <span className="cart-item-price">{formatPrice(price)} {SharedLabels?.EUR}</span>
         </div>
 
         <button

@@ -3,6 +3,7 @@
 import { CartPageLabels } from "../../../domain/constants/cart.page.labels"
 import { SharedLabels } from "../../../domain/constants/shared.labels"
 import type { CartTotalProps } from "../../../domain/models/interfaces"
+import { formatPrice } from "../../../utils/formatPrice"
 
 /**
  * Component that displays the total accumulated price of the shopping cart.
@@ -19,7 +20,7 @@ export default function CartTotal({cartTotalPrice}: CartTotalProps) {
   return (
     <div className="cart-total">
       <span>{CartPageLabels?.TOTAL}</span>
-      <span>{cartTotalPrice} {SharedLabels?.EUR}</span>
+      <span>{formatPrice(cartTotalPrice)} {SharedLabels?.EUR}</span>
     </div>
   )
 }
