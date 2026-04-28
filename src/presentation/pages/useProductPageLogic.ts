@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getProductById } from "../../application/flows/getProductByIdFow";
+import { getProductById } from "../../application/flows/getProductByIdFlow";
 import type {
   ColorOption,
   StorageOption,
