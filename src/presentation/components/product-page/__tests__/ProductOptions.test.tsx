@@ -42,7 +42,6 @@ describe("ProductOptions Component", () => {
     expect(screen.getByText("256GB")).toBeInTheDocument()
     expect(screen.getByText("512GB")).toBeInTheDocument()
 
-    // CORRECCIÓN: Usar los nombres que están en mockProduct
     expect(screen.getByLabelText(/Select color Titanium Blue/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/Select color Titanium White/i)).toBeInTheDocument()
   })
@@ -73,7 +72,6 @@ describe("ProductOptions Component", () => {
       />
     )
 
-    // CORRECCIÓN: Usar un color que sí exista en el mock (Titanium White es el índice 1)
     fireEvent.click(screen.getByLabelText(/Select color Titanium White/i))
     expect(mockSetColor).toHaveBeenCalledWith(mockProduct.colorOptions[1])
   })
@@ -90,7 +88,6 @@ describe("ProductOptions Component", () => {
     )
 
     expect(screen.getByText("256GB")).toHaveClass("selected")
-    // CORRECCIÓN: Usar el nombre del color seleccionado (Titanium Blue)
     expect(screen.getByLabelText(/Select color Titanium Blue/i)).toHaveClass("selected")
   })
 })

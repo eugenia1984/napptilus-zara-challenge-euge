@@ -50,7 +50,8 @@ export default function ProductDetailContent({
         setSelectedStorage(product.storageOptions[0])
       }
     }
-  }, [product, selectedColor, selectedStorage, setSelectedColor, setSelectedStorage])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [product.id])
 
   // Scrollbar for similar products
   useEffect(() => {

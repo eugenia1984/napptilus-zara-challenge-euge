@@ -44,12 +44,12 @@ describe("CartItem Component", () => {
     const deleteButton = screen.getByRole("button", { name: /remove/i });
     fireEvent.click(deleteButton);
 
-    // expect(mockOnRemove).toHaveBeenCalledWith(
-    //  mockItem.productId,
-    //  mockItem.color,
-    //  mockItem.storage
-    // );
-    // expect(mockOnRemove).toHaveBeenCalledTimes(1);
+    expect(mockOnRemove).toHaveBeenCalledWith(
+      mockItem.productId,
+      mockItem.color,
+      mockItem.storage
+    );
+    expect(mockOnRemove).toHaveBeenCalledTimes(1);
   });
 
   it("should not show quantity multiplier if quantity is 1", () => {
