@@ -3,10 +3,12 @@
   --bg-color: #ffffff;
   --text-primary: #000000;
   --text-secondary: #666666;
+  --text-ternary: #a0a0a0;
   --text-warning: #c0392b;
-  ---text-error: #d32f2f;
+  --text-error: #d32f2f;
   --border-color-primary: #000000;
   --border-color-secondary: #cccccc;
+  --bg-hover: #f9f9f9;
 
   /* Typography */
   --font-family: Helvetica, Arial, sans-serif;
@@ -287,7 +289,7 @@ ol {
 }
 
 .product-card:hover .product-brand {
-  color: #a0a0a0;
+  color: var(--text-ternary);
 }
 
 .product-card:hover .product-name,
@@ -401,7 +403,7 @@ ol {
 .storage-btn {
   flex: 1;
   padding: 12px 0;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border-color-primary);
   margin-right: -1px;
   background: transparent;
   font-family: var(--font-family);
@@ -411,7 +413,7 @@ ol {
   transition: all 0.2s;
 
   &:hover {
-    background-color: #f9f9f9;
+    background-color: var(--bg-hover);
   }
 
   &:last-child {
@@ -427,21 +429,8 @@ ol {
   position: relative;
 
   &:hover {
-    background-color: #f9f9f9;
+    background-color: var(--bg-hover);
   }
-}
-
-.option-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.option-label {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-  letter-spacing: 0.05em;
 }
 
 .color-options {
@@ -453,7 +442,7 @@ ol {
   width: 24px;
   height: 24px;
   border-radius: 0;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border-color-primary);
   cursor: pointer;
   padding: 0;
   transition: transform 0.2s;
@@ -484,7 +473,7 @@ ol {
   margin-top: var(--spacing-sm);
 
   &:disabled {
-    background-color: var(--border-color);
+    background-color: var(--border-color-secondary);
     color: var(--text-secondary);
     cursor: not-allowed;
   }
@@ -540,39 +529,13 @@ ol {
   }
 }
 
-.section-title {
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-regular);
-  text-transform: uppercase;
-  margin-bottom: var(--spacing-md);
-  padding-bottom: var(--spacing-sm);
-  border-bottom: var(--border-thin);
-}
-
-.product-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  margin-bottom: var(--spacing-lg);
-  border-top: var(--border-thin);
-
-  @media (max-width: 767px) {
-    border-top: none;
-    gap: var(--spacing-sm);
-  }
-
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(4, 1fr);
-    border-left: var(--border-thin);
-  }
-}
-
 .similar-grid {
   display: flex !important;
   flex-direction: row !important;
   grid-template-columns: unset !important;
   overflow-x: auto;
   border-top: none !important;
-  border-left: var(--border-thin) !important;
+  border-left: var(--border-thin-secondary) !important;
   gap: 0;
   padding-bottom: 0;
   scroll-snap-type: x mandatory;
@@ -588,7 +551,7 @@ ol {
 .similar-grid .product-card {
   flex: 0 0 300px;
   scroll-snap-align: start;
-  border: var(--border-thin) !important;
+  border: var(--border-thin-secondary) !important;
   margin-left: -1px;
   display: flex;
   flex-direction: column;
@@ -636,7 +599,7 @@ ol {
 .similar-indicator {
   width: 100%;
   height: 2px;
-  background-color: var(--border-color);
+  background-color: var(--border-color-secondary);
   margin-top: 12px;
   position: relative;
   overflow: hidden;
@@ -680,14 +643,14 @@ ol {
   font-family: var(--font-family);
   font-size: 0.75rem;
   text-transform: uppercase;
-  border: var(--border-thin);
+  border: var(--border-thin-secondary);
   color: var(--text-primary);
   background: transparent;
   cursor: pointer;
   white-space: nowrap;
 
   &:hover {
-    background-color: #f9f9f9;
+    background-color: var(--bg-hover);
   }
 
   @media (min-width: 768px) {
@@ -867,7 +830,7 @@ ol {
   white-space: nowrap;
 
   &:hover {
-    background-color: #f9f9f9;
+    background-color: var(--bg-hover);
   }
 
   @media (min-width: 768px) {

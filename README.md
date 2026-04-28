@@ -6,9 +6,9 @@ This project is built with a focus on clean architecture, accessibility, and hig
 
 ## 🚀 Technical Stack
 
-* **Frontend**: React (v19.2.5), react-touter (v7.14.2) and React-Router-DOM (v7.14.2)
+* **Frontend**: React (v19.2.5), react-router (v7.14.2) and React-Router-DOM (v7.14.2)
 
-* **Build Tool**: Vite (v8.0.1)
+* **Build Tool**: Vite (v8.0.10)
 
 * **State Management**: React Context API (for shopping cart persistence)
 

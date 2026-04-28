@@ -49,5 +49,5 @@ export const useHomePageLogic = () => {
     productsPromise,
     handleSearchChange,
     clearSearch,
-  };
+  } as const;
 };

@@ -59,5 +59,5 @@ export const useProductPageLogic = () => {
     selectedStorage,
     setSelectedStorage,
     id,
-  };
+  } as const;
 };

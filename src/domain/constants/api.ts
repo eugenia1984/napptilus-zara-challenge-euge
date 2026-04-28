@@ -1,4 +1,4 @@
-// src/domain/constants/cart.page.labels.ts
+// src/domain/constants/api.ts
 
 export const ApiConstants = {
   MISSING_API_URL_OR_KEY:

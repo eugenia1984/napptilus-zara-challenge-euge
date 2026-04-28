@@ -55,7 +55,7 @@ export default function CartPage() {
               item={item}
               handleRemoveFromCart={handleRemoveFromCart}
               index={index}
-              key={item.productId}
+              key={`${item.productId}-${item.color}-${item.storage}`}
             />
           ))}
         </section>
