@@ -46,6 +46,8 @@ src
  └── utils                   # Formatting helpers and pure utility functions
 ```
 
+> For a detailed architecture breakdown, see the [Architecture Documentation](./docs/README.md).
+
 ## 📋 Features
 
 * **Product Listing**: Grid view of the top 20 devices with real-time API filtering by name or brand.
@@ -74,7 +76,7 @@ Automated testing is implemented using **Vitest** and **React Testing Library** 
 
 - Home page: `/`
 
-- Product detail page: `/product/id={id}`
+- Product detail page: `/product/{id}`
 
 - Cart page: `/cart`
 
@@ -90,12 +92,12 @@ Automated testing is implemented using **Vitest** and **React Testing Library** 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/zara-challenge.git
+   git clone https://github.com/eugenia1984/napptilus-zara-challenge-euge.git
    ```
 
 2. Navigate to the project folder:
    ```bash
-   cd zara-challenge
+   cd napptilus-zara-challenge-euge
    ```
 
 3. Install dependencies:
@@ -113,13 +115,33 @@ Automated testing is implemented using **Vitest** and **React Testing Library** 
     ```bash
     npm run build
     ```
+* **Production Build**: Compiles, concatenates, and minimizes assets for optimal performance.
+    ```bash
+    npm run build
+    ```
 * **Testing (Terminal)**: Run the automated test suite in watch mode.
     ```bash
     npm run test
     ```
+* **Production Preview**: Serves the `dist/` output locally to verify the production build.
+    ```bash
+    npm run preview
+    ```
 * **Testing (Visual UI)**: Open the interactive Vitest UI in your browser to see detailed results and reports.
     ```bash
     npm run test:ui
+    ```
+* **Testing (Visual UI)**: Open the interactive Vitest UI in your browser to see detailed results and reports.
+    ```bash
+    npm run test:ui
+    ```
+* **Test Coverage**: Generate a code coverage report.
+    ```bash
+    npm run test:coverage
+    ```
+* **Code Formatting**: Format all source files with Prettier.
+    ```bash
+    npm run format
     ```
 
 ## 🔑 Environment Variables
