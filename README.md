@@ -105,6 +105,8 @@ Automated testing is implemented using **Vitest** and **React Testing Library** 
    npm install
    ```
 
+*TIP*: remember to add the .env` file
+
 ### Execution
 
 * **Development Mode**: Assets are served without minification for easier debugging.
@@ -131,14 +133,13 @@ Automated testing is implemented using **Vitest** and **React Testing Library** 
     ```bash
     npm run test:ui
     ```
-* **Testing (Visual UI)**: Open the interactive Vitest UI in your browser to see detailed results and reports.
-    ```bash
-    npm run test:ui
-    ```
 * **Test Coverage**: Generate a code coverage report.
     ```bash
     npm run test:coverage
     ```
+
+You can take a look at the new `coverage` folder created with the `index.html` to see a graphic report on browser.
+
 * **Code Formatting**: Format all source files with Prettier.
     ```bash
     npm run format
@@ -150,9 +151,9 @@ To interact with the REST API, create a `.env` file in the root directory:
 
 ```env
 VITE_API_URL=https://prueba-tecnica-api-tienda-moviles.onrender.com
-VITE_API_KEY=87909682e6cd74208f41a6ef39fe4191
+VITE_API_KEY=your_x_api_key_here
 ```
-*Note: All requests include the `x-api-key` header for authentication.*
+*Note: All requests include the `x-api-key` header for authentication. The secret x-api-key is in the challenge requirement*
 
 ## ♿ Accessibility & Quality
 
