@@ -1,6 +1,7 @@
 // src/presentation/components/product-page/ProductDetailContent.tsx
 
 import { use, useEffect, useMemo, useRef } from "react"
+import { useNavigate } from "react-router-dom"
 import type { ProductDetailContentModel } from "../../../domain/models/interfaces"
 import { useCart } from "../../../infrastructure/context/CartContext"
 import ProductImage from "./ProductImage"
@@ -9,6 +10,7 @@ import ProductOptions from "./ProductOptions"
 import ProductSpecs from "./ProductSpecs"
 import SimilarProductsList from "./SimilarProductsList"
 import { SharedLabels } from "../../../domain/constants/shared.labels"
+import { AppPaths } from "../../../domain/constants/paths"
 
 /**
  * Component that renders the core content of the product detail page.
@@ -37,6 +39,7 @@ export default function ProductDetailContent({
 }: ProductDetailContentModel) {
   const product = use(productPromise)
   const { addToCart } = useCart()
+  const navigate = useNavigate()
 
   const similarGridRef = useRef<HTMLDivElement>(null)
   const thumbRef = useRef<HTMLDivElement>(null)
@@ -132,6 +135,7 @@ export default function ProductDetailContent({
                   price: currentPrice,
                   quantity: 1
                 })
+                navigate(AppPaths?.CART)
               }
             }}
           >

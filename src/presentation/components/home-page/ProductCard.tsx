@@ -34,7 +34,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           src={product.imageUrl} 
           alt={product.name}
           width={10}
-          height={10}
+          height={257}
           className="product-image"
         />
       </div>

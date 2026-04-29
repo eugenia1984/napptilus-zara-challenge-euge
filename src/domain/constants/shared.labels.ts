@@ -6,5 +6,5 @@ export const SharedLabels = {
   HOME_PAGE_ICON_ARIA_LABEL: "MBST home page",
   EUR: "EUR",
   BACK: "Back",
-  ADD: "Add"
+  ADD: "Añadir"
 } as const;

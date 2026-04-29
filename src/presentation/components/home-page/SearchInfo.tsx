@@ -23,9 +23,6 @@ export default function SearchInfo({productsAmount}:SearchInfoProps) {
       <div className="results-count">
         {productsAmount} {HomePageLabels?.RESULTS}
       </div>
-      <div className="filter-label">
-        {HomePageLabels?.FILTER}
-      </div>
     </div>
   )
 }

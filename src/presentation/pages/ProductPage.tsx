@@ -39,7 +39,7 @@ export default function ProductPage() {
   return (
     <div className="product-page">
       <LinkButton
-        text={SharedLabels?.BACK}
+        text={`< ${SharedLabels?.BACK}`}
         to={AppPaths?.HOME}
         className="back-link"
         ariaLabel={ProductPageLabels?.BACK_BUTTON_ARIA_LABEL}

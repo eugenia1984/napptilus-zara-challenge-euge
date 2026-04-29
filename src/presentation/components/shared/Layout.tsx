@@ -52,7 +52,7 @@ export default function Layout() {
                 src={bagIcon}
                 alt={SharedLabels?.ALT_BAG_ICON}
                 width={18}
-                height={18} /> {cartItems.length}
+                height={18} /> <span className="header-cart-amount">{cartItems.length}</span>
             </Link>
           </div>
         )}

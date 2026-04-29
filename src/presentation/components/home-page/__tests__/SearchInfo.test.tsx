@@ -14,18 +14,11 @@ describe("SearchInfo Component", () => {
     expect(screen.getByText(resultsRegex)).toBeInTheDocument()
   })
 
-  it("should display the filter label from constants", () => {
-    render(<SearchInfo productsAmount={0} />)
-
-    expect(screen.getByText(HomePageLabels?.FILTER)).toBeInTheDocument()
-  })
-
   it("should apply the correct CSS classes for layout", () => {
     const { container } = render(<SearchInfo productsAmount={10} />)
 
     expect(container.firstChild).toHaveClass("search-info")
 
     expect(container.querySelector(".results-count")).toBeInTheDocument()
-    expect(container.querySelector(".filter-label")).toBeInTheDocument()
   })
 })

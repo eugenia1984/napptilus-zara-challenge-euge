@@ -1,5 +1,6 @@
 // src/presentation/components/product-page/ProductHeader.tsx
 
+import { ProductPageLabels } from "../../../domain/constants/product.page.labels";
 import { SharedLabels } from "../../../domain/constants/shared.labels";
 import type { ProductHeaderProps } from "../../../domain/models/interfaces";
 
@@ -19,7 +20,7 @@ export default function ProductHeader({productName, productPrice}:ProductHeaderP
   return (
     <div className="product-detail-header">
       <h1 className="product-detail-name">{productName}</h1>
-      <span className="product-detail-price">{productPrice} {SharedLabels?.EUR}</span>
+      <span className="product-detail-price">{ProductPageLabels?.FROM} {productPrice} {SharedLabels?.EUR}</span>
     </div>
   )
 }

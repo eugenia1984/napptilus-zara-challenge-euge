@@ -51,7 +51,7 @@ describe("ProductCard Component", () => {
     expect(img).toHaveAttribute("src", mockProduct.imageUrl)
     expect(img).toHaveAttribute("alt", mockProduct.name)
     expect(img).toHaveAttribute("width", "10")
-    expect(img).toHaveAttribute("height", "10")
+    expect(img).toHaveAttribute("height", "257")
   })
 
   it("should apply the correct CSS classes for styling", () => {

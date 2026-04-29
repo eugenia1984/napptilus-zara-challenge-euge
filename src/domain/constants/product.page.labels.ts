@@ -2,8 +2,9 @@
 
 export const ProductPageLabels = {
   BACK_BUTTON_ARIA_LABEL: "Back button navigation",
+  FROM: "From",
   CHOOSE_STORAGE: "Storage ¿How much space do you need?",
-  CHOOSE_COLOR: "Color. Pick your favorite.",
+  CHOOSE_COLOR: "Color. Pick your favourite.",
   SPECIFICATIONS: "Specifications",
   BRAND: "Brand",
   DESCRIPTION: "Description",

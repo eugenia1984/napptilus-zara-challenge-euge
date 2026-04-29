@@ -2,7 +2,7 @@
 
 export const CartPageLabels = {
   TITLE: "Cart",
-  DELETE: "Delete",
+  DELETE: "Eliminar",
   TOTAL: "Total",
   CONTINUE_SHOPPING: "Continue shopping",
   CONTINUE_SHOPPING_ARIA_LABEL: "Continue shopping at Home page",
