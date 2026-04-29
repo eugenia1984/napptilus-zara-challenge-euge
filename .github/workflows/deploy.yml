@@ -9,6 +9,10 @@ permissions:
   pages: write
   id-token: write
 
+# Add this to resolve the Node.js 24 warning in 2026
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,25 +23,24 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24 # Updated to Node 24 for 2026 standards
           cache: 'npm'
 
       - name: Install dependencies
         run: npm install
 
       - name: Build
-        # Inject environment variables from GitHub Repository Secrets during the build process
+        # Inject environment variables from GitHub Repository Secrets
         run: npm run build
         env:
           VITE_API_URL: ${{ secrets.VITE_API_URL }}
           VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
 
       - name: Fix SPA for GitHub Pages
-        # Copy index.html to 404.html to handle client-side routing (React Router) on page refreshes
         run: cp dist/index.html dist/404.html
 
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5 # Updated version
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
