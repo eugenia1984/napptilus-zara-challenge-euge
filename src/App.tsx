@@ -12,7 +12,7 @@ function App() {
 
   return (
     <CartProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/napptilus-zara-challenge-euge">
         <Routes>
           <Route path={AppPaths.HOME} element={<Layout />}>
             <Route index element={<HomePage />} />
