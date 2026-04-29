@@ -44,18 +44,6 @@ export default function ProductDetailContent({
   const similarGridRef = useRef<HTMLDivElement>(null)
   const thumbRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    if (product) {
-      if (!selectedColor && product.colorOptions.length > 0) {
-        setSelectedColor(product.colorOptions[0])
-      }
-      if (!selectedStorage && product.storageOptions.length > 0) {
-        setSelectedStorage(product.storageOptions[0])
-      }
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [product.id])
-
   // Scrollbar for similar products
   useEffect(() => {
     const grid = similarGridRef.current
@@ -86,13 +74,9 @@ export default function ProductDetailContent({
   }, [product.id]);
 
   const currentImage = useMemo(() => {
-    if (selectedColor?.imageUrl) {
-      return selectedColor.imageUrl;
-    }
+    if (selectedColor?.imageUrl) return selectedColor.imageUrl;
 
-    if (product.colorOptions.length > 0) {
-      return product.colorOptions[0].imageUrl;
-    }
+    if (product.colorOptions?.[0]?.imageUrl) return product.colorOptions[0].imageUrl;
 
     return product.imageUrl;
   }, [selectedColor, product]);
@@ -101,7 +85,7 @@ export default function ProductDetailContent({
     return product.basePrice + (selectedStorage?.price || 0);
   }, [product.basePrice, selectedStorage]);
 
-  const canAddToCart = selectedColor && selectedStorage
+  const canAddToCart = !!selectedColor && !!selectedStorage
 
   return (
     <>
