@@ -4,6 +4,8 @@ A high-performance, responsive web application for browsing and managing a smart
 
 This project is built with a focus on clean architecture, accessibility, and high-fidelity UI.
 
+Take a look [https://eugenia1984.github.io/napptilus-zara-challenge-euge](https://eugenia1984.github.io/napptilus-zara-challenge-euge)
+
 ## 🚀 Technical Stack
 
 * **Frontend**: React (v19.2.5), react-router (v7.14.2) and React-Router-DOM (v7.14.2)
